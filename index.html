@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>juego ahorcado</title>
+        <meta charset="UTF-8">
+        <link href="reset.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </head>
+    <body id="eventoTecla">
+        <div id="cuadroInicio">
+           <button type="button" id="inicioBoton"  onclick="elegirPalabraSecreta()">Iniciar juego</button>
+           <button type="button" id="nuevaPalabraBoton">Agregar nueva palabra</button>
+        </div>
+        <div id="cuadroIngresoPalabra">
+            <form>
+                <textarea id="agregarPalabra" placeholder="Ingrese una palabra" autofocus></textarea>
+                <p id="condicion">🛈 Máx. 8 letras</p>
+            </form>
+            <button type="button" id="guardarPalabra" onclick="elegirPalabraSecreta()">Guardar y empezar</button>
+            <button type="button" id="cancelarPalabra">Cancelar</button>
+        </div>
+        <div id="cuadroJuego">
+
+            <canvas width="300" height="400" id="canvas"></canvas>
+          
+            <div id="palabraMostrada"></div>  
+            <canvas width="650" height="10" id="guiones" ></canvas>
+            <canvas width="470" height="100" id="letrasNo"></canvas>
+            <p class="aviso">🛈aprieta la tecla enter cuando la hayas adivinado</p>
+            <button type="button" id="jugar"  onclick="elegirPalabraSecreta()">Nuevo juego</button>
+            <button type="button" id="desistir">Desistir</button>
+            
+        </div>
+        <script>
+              
+ 
+            $('#cuadroIngresoPalabra').hide();
+            $('#cuadroJuego').hide();
+            $(function(){
+              $('#nuevaPalabraBoton').click(function(){
+                $('#cuadroIngresoPalabra').show();
+                $('#cuadroJuego').hide();
+                $('#cuadroInicio').hide();
+            })})
+
+            $(function(){
+              $('#guardarPalabra').click(function(){
+                $('#cuadroIngresoPalabra').hide();
+                $('#cuadroJuego').show();
+                $('#cuadroInicio').hide();
+            })})
+            $(function(){
+              $('#cancelarPalabra').click(function(){
+                $('#cuadroIngresoPalabra').hide();
+                $('#cuadroJuego').hide();
+                $('#cuadroInicio').show();
+            })})
+            $(function(){
+              $('#inicioBoton').click(function(){
+                $('#cuadroIngresoPalabra').hide();
+                $('#cuadroJuego').show();
+                $('#cuadroInicio').hide();
+            })})
+            $(function(){
+              $('#desistir').click(function(){
+                $('#cuadroIngresoPalabra').hide();
+                $('#cuadroJuego').hide();
+                $('#cuadroInicio').show();
+            })})
+                
+        </script>
+    </div>
+    <script src="index.js"></script>
+    <script src="canvas.js"></script>
+    </body>
+    
+</html>
